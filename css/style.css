@@ -1,0 +1,766 @@
+/* ==========================================================================
+   CONTENTS
+     1.  Palette and custom properties
+     2.  Reset
+     3.  Element selectors
+     4.  Layout
+     5.  Header and navigation
+     6.  Hero and buttons
+     7.  Cards, treats and points
+     8.  Price table
+     9.  Form
+     10. Images
+     11. Footer
+     12. Utilities (reserved for the JavaScript stage)
+     13. Media query
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. PALETTE AND CUSTOM PROPERTIES
+   --------------------------------------------------------------------------
+   Every colour, radius and spacing value used on the site is declared here.
+   A theme change means editing this block and nothing else.
+   ========================================================================== */
+:root {
+  --bg:          #FFF8F0;  /* page background, cream            */
+  --surface:     #FFFFFF;  /* cards and panels                  */
+  --text:        #3B2F2F;  /* main text, dark brown             */
+  --muted:       #7A6A61;  /* secondary text                    */
+  --accent:      #C96F4A;  /* buttons, links, table header      */
+  --accent-dark: #A65238;  /* hover states                      */
+  --border:      #E8D9C8;  /* borders and dividers              */
+  --radius:      10px;
+  --space:       1rem;
+
+  /* Derived tokens, built from the palette above */
+  --surface-alt:  #FDF1E5;  /* alternating table rows           */
+  --shadow:       0 2px 8px rgba(59, 47, 47, 0.07);
+  --shadow-hover: 0 8px 20px rgba(59, 47, 47, 0.13);
+  --focus-glow:   0 0 0 3px rgba(201, 111, 74, 0.22);
+
+  --font-heading: "Segoe UI", "Trebuchet MS", Verdana, sans-serif;
+  --font-body:    "Helvetica Neue", Arial, "Segoe UI", sans-serif;
+
+  --border-width: 1px;
+  --speed:        0.2s;
+}
+
+
+/* ==========================================================================
+   2. RESET
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================================
+   3. ELEMENT SELECTORS
+   ========================================================================== */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  color: var(--text);
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: var(--space);
+}
+
+h2 {
+  font-size: 1.7rem;
+  margin-bottom: var(--space);
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: var(--text);
+  margin-bottom: var(--space);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--speed) ease;
+}
+
+a:hover {
+  color: var(--accent-dark);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  margin-bottom: var(--space);
+  padding-left: 1.4rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+strong {
+  color: var(--accent-dark);
+}
+
+
+/* ==========================================================================
+   4. LAYOUT
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: calc(var(--space) * 1.5);
+  padding-right: calc(var(--space) * 1.5);
+}
+
+.section {
+  padding-top: calc(var(--space) * 3);
+  padding-bottom: calc(var(--space) * 3);
+}
+
+.section-alt {
+  background-color: var(--surface-alt);
+  border-top: var(--border-width) solid var(--border);
+  border-bottom: var(--border-width) solid var(--border);
+}
+
+.page-intro {
+  padding-top: calc(var(--space) * 3);
+  padding-bottom: var(--space);
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 60%;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+
+/* ==========================================================================
+   5. HEADER AND NAVIGATION
+   --------------------------------------------------------------------------
+   The header markup is identical on all six pages. Only the current page
+   carries class="active" on its own link.
+   ========================================================================== */
+#main-header {
+  background-color: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding-top: var(--space);
+  padding-bottom: var(--space);
+}
+
+#main-header .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space);
+}
+
+.site-name {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+.site-name:hover {
+  color: var(--accent);
+}
+
+.nav-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  margin-bottom: 0;
+}
+
+.nav-menu a {
+  display: block;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color var(--speed) ease, color var(--speed) ease;
+}
+
+.nav-menu a:hover {
+  background-color: var(--surface-alt);
+  color: var(--accent-dark);
+}
+
+.nav-menu a.active {
+  background-color: var(--accent);
+  color: var(--surface);
+}
+
+
+/* ==========================================================================
+   6. HERO AND BUTTONS
+   ========================================================================== */
+#hero {
+  background-color: var(--surface-alt);
+  border-bottom: var(--border-width) solid var(--border);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--space) * 3);
+  padding-bottom: calc(var(--space) * 3);
+}
+
+#hero .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(var(--space) * 2.5);
+}
+
+.hero-text {
+  flex: 1 1 340px;
+}
+
+.hero-text p {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.hero-media {
+  flex: 1 1 340px;
+}
+
+.hero-img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.btn {
+  display: inline-block;
+  margin-top: var(--space);
+  margin-right: 0.6rem;
+  padding: 0.7rem 1.5rem;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  background-color: var(--accent);
+  color: var(--surface);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--speed) ease, border-color var(--speed) ease, color var(--speed) ease;
+}
+
+.btn:hover {
+  background-color: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: var(--surface);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--accent);
+}
+
+.btn-outline:hover {
+  background-color: var(--accent);
+  color: var(--surface);
+}
+
+.btn-small {
+  padding: 0.45rem 1.1rem;
+  font-size: 0.9rem;
+}
+
+
+/* ==========================================================================
+   7. CARDS, TREATS AND POINTS
+   --------------------------------------------------------------------------
+   The grid works with any number of cards. There are no per-item rules and
+   no fixed card widths, so new games or treats need no extra CSS.
+   ========================================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: calc(var(--space) * 1.5);
+  margin-top: calc(var(--space) * 1.5);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform var(--speed) ease, box-shadow var(--speed) ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-bottom: var(--border-width) solid var(--border);
+}
+
+.card h3 {
+  margin-bottom: 0.4rem;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: calc(var(--space) * 1.25);
+}
+
+.card-meta {
+  display: block;
+  margin-bottom: var(--space);
+  color: var(--accent-dark);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.card-actions {
+  margin-top: auto;
+}
+
+.card-actions .btn {
+  margin-top: 0;
+  margin-right: 0;
+}
+
+.treat-card {
+  text-align: left;
+}
+
+.treat-cost {
+  display: block;
+  margin-bottom: var(--space);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.price-tag {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--radius);
+  background-color: var(--surface-alt);
+  color: var(--accent-dark);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.points-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: 60%;
+  margin-top: var(--space);
+  margin-bottom: calc(var(--space) * 2);
+  padding: calc(var(--space) * 1.25);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.points-label {
+  color: var(--muted);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.points-value {
+  color: var(--accent);
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.feature-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: var(--space);
+}
+
+.feature-list li {
+  margin-bottom: 0.9rem;
+  padding-left: calc(var(--space) * 1.25);
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+}
+
+.step-list {
+  margin-top: var(--space);
+  padding-left: 1.4rem;
+}
+
+.step-list li {
+  margin-bottom: 0.7rem;
+  padding-left: 0.3rem;
+}
+
+.info-panel {
+  margin-top: calc(var(--space) * 1.5);
+  padding: calc(var(--space) * 1.5);
+  border: var(--border-width) solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.info-panel p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+
+/* ==========================================================================
+   8. PRICE TABLE
+   ========================================================================== */
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: calc(var(--space) * 1.5);
+}
+
+#price-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background-color: var(--surface);
+}
+
+#price-table caption {
+  margin-bottom: 0.6rem;
+  color: var(--muted);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+#price-table th {
+  padding: 0.9rem var(--space);
+  background-color: var(--accent);
+  color: var(--surface);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+#price-table td {
+  padding: 0.85rem var(--space);
+  border-bottom: var(--border-width) solid var(--border);
+  color: var(--text);
+  vertical-align: top;
+}
+
+#price-table tr:nth-child(even) {
+  background-color: var(--surface-alt);
+}
+
+
+/* ==========================================================================
+   9. FORM
+   ========================================================================== */
+#contact-form {
+  max-width: 60%;
+  margin-top: calc(var(--space) * 1.5);
+  padding: calc(var(--space) * 2);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.form-group {
+  margin-bottom: calc(var(--space) * 1.25);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background-color: var(--surface);
+  box-shadow: var(--focus-glow);
+}
+
+input[type="color"] {
+  width: 80px;
+  height: 44px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.4rem;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.group-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+}
+
+.radio-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--space) * 1.25);
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.form-hint {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.contact-details {
+  max-width: 60%;
+  margin-top: calc(var(--space) * 2);
+  padding: calc(var(--space) * 1.5);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface-alt);
+}
+
+.contact-details p {
+  margin-bottom: 0.4rem;
+  color: var(--muted);
+}
+
+
+/* ==========================================================================
+   10. IMAGES
+   --------------------------------------------------------------------------
+   Every image is sized here, never with HTML width or height attributes.
+   ========================================================================== */
+.profile-img {
+  width: 180px;
+  height: 180px;
+  border: 4px solid var(--accent);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+.profile-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: calc(var(--space) * 2);
+  margin-top: var(--space);
+}
+
+.profile-text {
+  flex: 1 1 320px;
+}
+
+.wide-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.split {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(var(--space) * 2);
+  margin-top: var(--space);
+}
+
+.split-item {
+  flex: 1 1 320px;
+}
+
+
+/* ==========================================================================
+   11. FOOTER
+   ========================================================================== */
+.site-footer {
+  margin-top: calc(var(--space) * 3);
+  padding-top: calc(var(--space) * 2);
+  padding-bottom: calc(var(--space) * 2);
+  border-top: var(--border-width) solid var(--border);
+  background-color: var(--surface-alt);
+  text-align: center;
+}
+
+.site-footer p {
+  margin-bottom: 0.25rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.footer-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+
+/* ==========================================================================
+   12. UTILITIES (reserved for the JavaScript stage)
+   --------------------------------------------------------------------------
+   Not used yet. Stage 2 will toggle these classes from script to hide
+   elements and to mark a card while its action is being processed.
+
+   .hidden {
+     display: none;
+   }
+
+   .is-loading {
+     opacity: 0.6;
+     pointer-events: none;
+   }
+   ========================================================================== */
+
+
+/* ==========================================================================
+   13. MEDIA QUERY
+   ========================================================================== */
+@media (max-width: 720px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #main-header .container {
+    justify-content: center;
+  }
+
+  .nav-menu {
+    justify-content: center;
+  }
+
+  #hero {
+    min-height: auto;
+  }
+
+  .lead,
+  .points-bar,
+  #contact-form,
+  .contact-details {
+    max-width: 100%;
+  }
+
+  #contact-form {
+    padding: calc(var(--space) * 1.25);
+  }
+}

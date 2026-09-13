@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Six minigames included in every pass at the Online Anti-Cafe: chess, mafia, codenames, uno, quiz night and werewolf.">
+  <title>Games | Online Anti-Cafe</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+  <!-- header: keep identical on all pages -->
+  <header id="main-header">
+    <div class="container">
+      <a class="site-name" href="index.html">Online Anti-Cafe</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="games.html">Games</a></li>
+          <li><a href="cafe.html">Cafe</a></li>
+          <li><a href="prices.html">Prices</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-intro">
+    <div class="container">
+      <h1>Games</h1>
+      <p class="lead">Six titles, all included in every pass. Play on your own against the computer, or
+        pass one device around a table with friends.</p>
+      <p>Each card tells you how many people a game suits and roughly how long a round takes, so you can
+        pick something that fits the time left on your pass. Finishing a round adds cafe points, and those
+        points are spent in the <a href="cafe.html">virtual cafe</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card-grid">
+        <article class="card" data-game="chess">
+          <img src="images/game-chess.jpg" alt="A wooden chess board in the middle of a game, seen from the side">
+          <div class="card-body">
+            <h3>Chess</h3>
+            <p>The full classic ruleset with three difficulty levels for the solo board. Games save
+              themselves, so an unfinished match is still there tomorrow.</p>
+            <span class="card-meta">1-2 players, 20 min</span>
+            <div class="card-actions">
+              <a class="btn btn-small" href="#" data-action="play">Play</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-game="mafia">
+          <img src="images/game-mafia.jpg" alt="A circle of playing cards with role illustrations laid out on a dark table">
+          <div class="card-body">
+            <h3>Mafia</h3>
+            <p>The screen deals a secret role to each person in turn, then runs the night and day phases
+              with a timer. One device is passed around the group.</p>
+            <span class="card-meta">4-10 players, 30 min</span>
+            <div class="card-actions">
+              <a class="btn btn-small" href="#" data-action="play">Play</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-game="codenames">
+          <img src="images/game-codenames.jpg" alt="A grid of word cards on a table with two coloured team markers beside it">
+          <div class="card-body">
+            <h3>Codenames</h3>
+            <p>A grid of twenty-five words and two teams trying to reach their own agents first. The
+              screen keeps the key hidden until the round ends.</p>
+            <span class="card-meta">4-8 players, 15 min</span>
+            <div class="card-actions">
+              <a class="btn btn-small" href="#" data-action="play">Play</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-game="uno">
+          <img src="images/game-uno.jpg" alt="A fan of brightly coloured number cards held above a table">
+          <div class="card-body">
+            <h3>Uno</h3>
+            <p>Fast colour and number matching with the usual skips, reverses and draw cards. Short enough
+              to fit in the last ten minutes of a pass.</p>
+            <span class="card-meta">2-6 players, 10 min</span>
+            <div class="card-actions">
+              <a class="btn btn-small" href="#" data-action="play">Play</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-game="quiz-night">
+          <img src="images/game-quiz-night.jpg" alt="A quiz answer sheet and a pencil next to a mug of tea">
+          <div class="card-body">
+            <h3>Quiz Night</h3>
+            <p>Forty questions across history, music, science, film, sport and one round of deliberately
+              strange facts. Scores are kept on screen.</p>
+            <span class="card-meta">1-6 players, 25 min</span>
+            <div class="card-actions">
+              <a class="btn btn-small" href="#" data-action="play">Play</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-game="werewolf">
+          <img src="images/game-werewolf.jpg" alt="Illustrated village role cards spread out beside a candle">
+          <div class="card-body">
+            <h3>Werewolf</h3>
+            <p>A village, a few werewolves and a narrator the screen plays for you. Slower and more
+              talkative than Mafia, with extra village roles.</p>
+            <span class="card-meta">5-12 players, 35 min</span>
+            <div class="card-actions">
+              <a class="btn btn-small" href="#" data-action="play">Play</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>How a game starts</h2>
+      <ol class="step-list">
+        <li><strong>Pick a game.</strong> Use the cards above, or sort by round length if your pass is
+          nearly finished.</li>
+        <li><strong>Open it.</strong> The board loads in the same window and the clock on your pass starts
+          counting from that moment.</li>
+        <li><strong>Play solo or hand the device around.</strong> Single-player games run against the
+          computer; group games deal roles one person at a time on the same screen.</li>
+        <li><strong>Collect your points.</strong> Finishing a round adds cafe points to your balance,
+          ready to spend on a treat.</li>
+      </ol>
+      <div class="info-panel">
+        <p>The Play buttons are placeholders in this stage of the project. The games themselves arrive
+          with the JavaScript stage, and the markup on this page is already prepared for them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer: keep identical on all pages -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-name">Batyrkhan Kanapiya</p>
+      <p>Online Anti-Cafe, front-end course project, 2026</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

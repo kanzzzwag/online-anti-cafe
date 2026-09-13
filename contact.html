@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact the Online Anti-Cafe about games, cafe points or passes using the message form.">
+  <title>Contact | Online Anti-Cafe</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+
+<body>
+
+  <!-- header: keep identical on all pages -->
+  <header id="main-header">
+    <div class="container">
+      <a class="site-name" href="index.html">Online Anti-Cafe</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="cafe.html">Cafe</a></li>
+          <li><a href="prices.html">Prices</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a class="active" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-intro">
+    <div class="container">
+      <h1>Contact</h1>
+      <p class="lead">Questions about a pass, a game or your points balance come here.</p>
+      <p>Write to us with the form below and an answer usually arrives the same day. If something is
+        wrong with a game, say which one and what you were doing when it happened. It saves a round of
+        questions and gets the fix out faster.</p>
+      <img class="wide-img" src="images/contact.jpg" alt="An open notebook and a cup of coffee beside a laptop keyboard in warm light">
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Send a message</h2>
+
+      <form id="contact-form" action="#" method="post">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          <span class="form-hint">Used only to reply to this message.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">What is your message about</label>
+          <select id="subject" name="subject">
+            <option value="games">Games</option>
+            <option value="points">Cafe points</option>
+            <option value="passes">Passes</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <span class="group-label">When do you usually play</span>
+          <div class="radio-row">
+            <label class="radio-option" for="time-morning">
+              <input type="radio" id="time-morning" name="playtime" value="morning"> Morning
+            </label>
+            <label class="radio-option" for="time-afternoon">
+              <input type="radio" id="time-afternoon" name="playtime" value="afternoon"> Afternoon
+            </label>
+            <label class="radio-option" for="time-evening">
+              <input type="radio" id="time-evening" name="playtime" value="evening" checked> Evening
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cafe-color">Favourite cafe color</label>
+          <input type="color" id="cafe-color" name="cafe-color" value="#C96F4A">
+          <span class="form-hint">We are collecting opinions for a second colour theme.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" placeholder="Tell us what happened, or what you would like to see on the site"></textarea>
+        </div>
+
+        <div class="form-group">
+          <button class="btn" type="submit">Send message</button>
+        </div>
+      </form>
+
+      <div class="contact-details">
+        <h3>Other ways to reach us</h3>
+        <p>Email: hello@online-anticafe.kz</p>
+        <p>Support hours: every day, 10:00 to 22:00</p>
+        <p>Answers to most questions about passes and points are already on the
+          <a href="prices.html">prices page</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer: keep identical on all pages -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-name">Batyrkhan Kanapiya</p>
+      <p>Online Anti-Cafe, front-end course project, 2026</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

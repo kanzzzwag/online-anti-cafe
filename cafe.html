@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Spend the cafe points that come with your pass on virtual treats: coffee, tea, pizza, cookies, lemonade and cake, keep them or send them to a friend.">
+  <title>Cafe | Online Anti-Cafe</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+
+<body>
+
+  <!-- header: keep identical on all pages -->
+  <header id="main-header">
+    <div class="container">
+      <a class="site-name" href="index.html">Online Anti-Cafe</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a class="active" href="cafe.html">Cafe</a></li>
+          <li><a href="prices.html">Prices</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-intro">
+    <div class="container">
+      <h1>The virtual cafe</h1>
+      <p class="lead">Where cafe points turn into something warm on the screen.</p>
+      <p>Every pass you buy adds cafe points to your account, and this is the only place they are spent.
+        A treat you order is virtual: it appears next to your avatar with the time you ordered it, and it
+        stays there until you replace it. Nothing ever leaves the screen, and no treat costs real money on
+        top of your pass.</p>
+      <p>Treats can also be given away. Order one, choose a friend instead of yourself, and it arrives
+        beside their avatar with your name on it. It is the usual way people here say thank you after a
+        long game of werewolf.</p>
+
+      <div class="points-bar">
+        <span class="points-label">Your balance</span>
+        <span class="points-value">120</span>
+        <span class="points-label">points</span>
+      </div>
+      <p class="note">Sample balance shown for the layout. A live balance arrives with the JavaScript
+        stage of the project.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Menu</h2>
+      <p class="lead">Six treats, priced in points and nothing else.</p>
+
+      <div class="card-grid">
+        <article class="card treat-card" data-treat="coffee" data-cost="20">
+          <img src="images/treat-coffee.jpg" alt="A cup of coffee with a pattern in the foam on a saucer">
+          <div class="card-body">
+            <h3>Coffee</h3>
+            <p>The default order. Sits beside your avatar with a small rising steam animation planned for
+              later.</p>
+            <span class="treat-cost"><span class="price-tag" data-cost="20">20</span> points</span>
+            <div class="card-actions">
+              <a class="btn btn-small" href="#" data-action="order">Order</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card treat-card" data-treat="tea" data-cost="15">
+          <img src="images/treat-tea.jpg" alt="A glass cup of black tea with a slice of lemon beside it">
+          <div class="card-body">
+            <h3>Tea</h3>
+            <p>Cheapest thing on the menu, and the one most often sent to somebody else mid-game.</p>
+            <span class="treat-cost"><span class="price-tag" data-cost="15">15</span> points</span>
+            <div class="card-actions">
+              <a class="btn btn-small" href="#" data-action="order">Order</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card treat-card" data-treat="pizza" data-cost="50">
+          <img src="images/treat-pizza.jpg" alt="A single slice of pizza with melted cheese on a wooden board">
+          <div class="card-body">
+            <h3>Pizza slice</h3>
+            <p>The celebration order. Usually appears after somebody finally wins a quiz night.</p>
+            <span class="treat-cost"><span class="price-tag" data-cost="50">50</span> points</span>
+            <div class="card-actions">
+              <a class="btn btn-small" href="#" data-action="order">Order</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card treat-card" data-treat="cookies" data-cost="15">
+          <img src="images/treat-cookies.jpg" alt="Three chocolate chip cookies stacked on a small plate">
+          <div class="card-body">
+            <h3>Cookies</h3>
+            <p>Comes as a plate of three, which the interface will let you share between two friends.</p>
+            <span class="treat-cost"><span class="price-tag" data-cost="15">15</span> points</span>
+            <div class="card-actions">
+              <a class="btn btn-small" href="#" data-action="order">Order</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card treat-card" data-treat="lemonade" data-cost="25">
+          <img src="images/treat-lemonade.jpg" alt="A tall glass of lemonade with ice and a sprig of mint">
+          <div class="card-body">
+            <h3>Lemonade</h3>
+            <p>For the long summer sessions, when nobody wants another cup of something hot.</p>
+            <span class="treat-cost"><span class="price-tag" data-cost="25">25</span> points</span>
+            <div class="card-actions">
+              <a class="btn btn-small" href="#" data-action="order">Order</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card treat-card" data-treat="cake" data-cost="40">
+          <img src="images/treat-cake.jpg" alt="A slice of layered sponge cake on a white plate with a fork">
+          <div class="card-body">
+            <h3>Cake</h3>
+            <p>Saved for birthdays. Sending one is the closest this site gets to a greeting card.</p>
+            <span class="treat-cost"><span class="price-tag" data-cost="40">40</span> points</span>
+            <div class="card-actions">
+              <a class="btn btn-small" href="#" data-action="order">Order</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>How points work</h2>
+      <ul class="feature-list">
+        <li><strong>Points arrive with the pass.</strong> Each plan on the <a href="prices.html">prices
+          page</a> lists exactly how many points it carries, and they land on the account the moment the
+          pass starts.</li>
+        <li><strong>Treats are virtual.</strong> An order changes what sits beside your avatar and
+          nothing else. The whole cafe lives inside your account.</li>
+        <li><strong>Points can be gifted.</strong> Any treat can be sent to another account instead of
+          your own, and the sender's name travels with it.</li>
+        <li><strong>Unused points stay.</strong> They do not expire when the pass does, so a small balance
+          left over from Tuesday is still there on Friday.</li>
+      </ul>
+      <div class="info-panel">
+        <p>The Order buttons are placeholders in this stage. Each treat card already carries the name and
+          the cost of its treat in the markup, so the working cafe can read them directly later.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer: keep identical on all pages -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-name">Batyrkhan Kanapiya</p>
+      <p>Online Anti-Cafe, front-end course project, 2026</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
