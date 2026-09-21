@@ -10,6 +10,11 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
+
+  <!-- page-layout: the grid container for this page. Its four children are
+       placed by name into the header / sidebar / main / footer areas. -->
+  <div class="page-layout">
+
   <!-- header: keep identical on all pages -->
   <header id="main-header">
     <div class="container">
@@ -26,6 +31,27 @@
       </nav>
     </div>
   </header>
+
+  <!-- sidebar: grid area "sidebar", the left column on a wide screen -->
+  <aside class="sidebar">
+    <h2 class="sidebar-title">Game types</h2>
+    <ul class="sidebar-list">
+      <li>Board games</li>
+      <li>Party games</li>
+      <li>Quiz games</li>
+      <li>Card games</li>
+      <li>Hidden role games</li>
+    </ul>
+
+    <div class="info-panel">
+      <h3>Need a pass?</h3>
+      <p>Every game on this page is included in all four passes, from a single hour to a whole month.</p>
+      <a class="btn btn-small" href="prices.html">See passes</a>
+    </div>
+  </aside>
+
+  <!-- main: grid area "main", the right column on a wide screen -->
+  <main class="page-main">
 
   <section class="page-intro">
     <div class="container">
@@ -142,6 +168,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- footer: keep identical on all pages -->
   <footer class="site-footer">
     <div class="container">
@@ -149,6 +177,9 @@
       <p>Online Anti-Cafe, front-end course project, 2026</p>
     </div>
   </footer>
+
+  </div>
+  <!-- end of .page-layout -->
 
 </body>
 

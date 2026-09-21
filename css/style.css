@@ -11,8 +11,10 @@
      9.  Form
      10. Images
      11. Footer
-     12. Utilities (reserved for the JavaScript stage)
-     13. Media query
+     12. Page layout with grid areas
+     13. Image gallery
+     14. Utilities (reserved for the JavaScript stage)
+     15. Media query
    ========================================================================== */
 
 
@@ -38,6 +40,7 @@
   --shadow:       0 2px 8px rgba(59, 47, 47, 0.07);
   --shadow-hover: 0 8px 20px rgba(59, 47, 47, 0.13);
   --focus-glow:   0 0 0 3px rgba(201, 111, 74, 0.22);
+  --overlay:      rgba(59, 47, 47, 0.82);  /* gallery caption bar   */
 
   --font-heading: "Segoe UI", "Trebuchet MS", Verdana, sans-serif;
   --font-body:    "Helvetica Neue", Arial, "Segoe UI", sans-serif;
@@ -316,17 +319,30 @@ strong {
 /* ==========================================================================
    7. CARDS, TREATS AND POINTS
    --------------------------------------------------------------------------
-   The grid works with any number of cards. There are no per-item rules and
+   The row works with any number of cards. There are no per-item rules and
    no fixed card widths, so new games or treats need no extra CSS.
    ========================================================================== */
 .card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* flex: the cards are one line of items, so a one-dimensional layout is
+     the right tool. The row itself decides how many fit. */
+  display: flex;
+  /* without wrap the cards would be squeezed onto a single line for ever;
+     with it they break onto a new line by themselves on a narrow screen */
+  flex-wrap: wrap;
+  /* one spacing value for the gaps between columns and between rows */
   gap: calc(var(--space) * 1.5);
   margin-top: calc(var(--space) * 1.5);
 }
 
 .card {
+  /* grow: 1 and shrink: 1 from an ideal width of 280px. Every card in a
+     line ends up the same width, and the count per line follows the screen
+     size on its own, with no media query. */
+  flex: 1 1 280px;
+  /* a second, nested flex container, this one vertical: it stacks the
+     picture and the body and lets .card-actions be pushed to the bottom.
+     align-items on the row above defaults to stretch, so the cards in a
+     line are all as tall as the tallest one. */
   display: flex;
   flex-direction: column;
   background-color: var(--surface);
@@ -337,6 +353,8 @@ strong {
   transition: transform var(--speed) ease, box-shadow var(--speed) ease;
 }
 
+/* hover effect: a small lift plus a deeper shadow, both animated by the
+   transition declared on .card above */
 .card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
@@ -377,6 +395,9 @@ strong {
 }
 
 .card-actions {
+  /* auto margin on the free space of a column flex container: it pushes
+     the button to the bottom, so buttons line up across the row however
+     long the text above them is */
   margin-top: auto;
 }
 
@@ -709,7 +730,171 @@ input[type="radio"] {
 
 
 /* ==========================================================================
-   12. UTILITIES (reserved for the JavaScript stage)
+   12. PAGE LAYOUT WITH GRID AREAS
+   --------------------------------------------------------------------------
+   Used on games.html. The whole page is one grid: two columns and three
+   rows, with every part given a name. Named areas are what let the header
+   and the footer stretch across both columns while the sidebar and the
+   main content share the middle row.
+   ========================================================================== */
+.page-layout {
+  /* grid, not flex: this layout has rows AND columns at the same time,
+     which is exactly what grid is for */
+  display: grid;
+  /* first column is a fixed sidebar, 1fr gives the rest to the content */
+  grid-template-columns: 260px 1fr;
+  /* header and footer are as tall as their content; 1fr makes the middle
+     row take all the height that is left over */
+  grid-template-rows: auto 1fr auto;
+  /* a picture of the page in text. A name written twice in a row means
+     that area spans both columns. */
+  grid-template-areas:
+    "header  header"
+    "sidebar main"
+    "footer  footer";
+  /* with the 1fr middle row this keeps the footer at the bottom of the
+     screen even when the page is short */
+  min-height: 100vh;
+}
+
+/* Each child is placed by area name, so the order in the HTML does not
+   decide where it lands on the screen. */
+.page-layout > #main-header {
+  grid-area: header;
+}
+
+.page-layout > .sidebar {
+  grid-area: sidebar;
+}
+
+.page-layout > .page-main {
+  grid-area: main;
+  /* a grid item will not shrink below its content by default; this lets a
+     long word or a wide table scroll instead of stretching the column */
+  min-width: 0;
+}
+
+.page-layout > .site-footer {
+  grid-area: footer;
+}
+
+.sidebar {
+  padding: calc(var(--space) * 2) calc(var(--space) * 1.5);
+  border-right: var(--border-width) solid var(--border);
+  background-color: var(--surface-alt);
+}
+
+.sidebar-title {
+  font-size: 1rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sidebar-list {
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.sidebar-list li {
+  margin-bottom: 0.5rem;
+  padding: 0.35rem 0 0.35rem calc(var(--space) * 0.75);
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* the sidebar box reuses .info-panel from section 7, so it matches the
+   panels on the rest of the site */
+.sidebar .info-panel {
+  padding: calc(var(--space) * 1.25);
+}
+
+.sidebar .info-panel .btn {
+  margin-right: 0;
+}
+
+
+/* ==========================================================================
+   13. IMAGE GALLERY
+   --------------------------------------------------------------------------
+   Used on about.html. A fixed three column grid of equal cells. Each
+   caption is taken out of the flow and laid over the bottom of its own
+   picture, and it slides up into view on hover.
+   ========================================================================== */
+.gallery {
+  /* grid: the pictures have to line up in columns as well as rows, which
+     flex-wrap cannot guarantee */
+  display: grid;
+  /* three columns of exactly the same width, whatever the screen size */
+  grid-template-columns: repeat(3, 1fr);
+  /* every row is the same height as the others */
+  grid-auto-rows: 1fr;
+  /* one value for the space between columns and between rows */
+  gap: calc(var(--space) * 1.25);
+  margin-top: calc(var(--space) * 1.5);
+}
+
+.gallery-item {
+  /* the anchor for the caption: an absolutely positioned child measures
+     itself against the nearest positioned ancestor, so it must be this
+     figure and not the page */
+  position: relative;
+  /* the cell keeps the same shape at every screen width, which is what
+     makes the rows equal */
+  aspect-ratio: 4 / 3;
+  margin: 0;
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  /* clips the picture and the caption bar to the rounded corners */
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.gallery-item img {
+  /* fill the whole cell; object-fit crops the picture instead of
+     squashing it, so photos of different sizes still line up */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-item figcaption {
+  /* out of the normal flow and pinned to the bottom edge of the figure */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.7rem calc(var(--space) * 0.85);
+  background-color: var(--overlay);
+  color: var(--surface);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  /* the hidden resting state: transparent and pushed below the edge */
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity var(--speed) ease, transform var(--speed) ease;
+}
+
+/* hover effect: the caption fades in and slides up over the picture */
+.gallery-item:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* On a touch screen there is no hover, so the caption would never be
+   readable. Here it is simply always visible. */
+@media (hover: none) {
+  .gallery-item figcaption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ==========================================================================
+   14. UTILITIES (reserved for the JavaScript stage)
    --------------------------------------------------------------------------
    Not used yet. Stage 2 will toggle these classes from script to hide
    elements and to mark a card while its action is being processed.
@@ -726,7 +911,7 @@ input[type="radio"] {
 
 
 /* ==========================================================================
-   13. MEDIA QUERY
+   15. MEDIA QUERY
    ========================================================================== */
 @media (max-width: 720px) {
   h1 {
@@ -737,8 +922,26 @@ input[type="radio"] {
     font-size: 1.4rem;
   }
 
-  .card-grid {
+  /* One column on a phone. Only the list of area names changes, and the
+     sidebar moves below the main content without touching the HTML. */
+  .page-layout {
     grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar"
+      "footer";
+  }
+
+  .sidebar {
+    border-right: none;
+    border-top: var(--border-width) solid var(--border);
+  }
+
+  /* two columns instead of three, so the pictures stay big enough to see */
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   #main-header .container {
