@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Weekly events at the Online Anti-Cafe: a chess ladder on Monday, quiz night on Wednesday and werewolf on Friday.">
+  <title>Events | Online Anti-Cafe</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+
+<body>
+
+  <!-- header: keep identical on all pages -->
+  <header id="main-header">
+    <div class="container">
+      <a class="site-name" href="index.html">Online Anti-Cafe</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a class="active" href="events.html">Events</a></li>
+          <li><a href="cafe.html">Cafe</a></li>
+          <li><a href="prices.html">Prices</a></li>
+          <li><a href="rules.html">Rules</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-intro">
+    <div class="container">
+      <h1>Weekly events</h1>
+      <p class="lead">Three evenings a week when everybody plays the same game at the same time.</p>
+      <p>Events are open to every pass. Join from the card on the evening itself, and the game starts
+        with whoever is in the room at eight o'clock.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>This week</h2>
+
+      <!-- card-columns: three cards side by side on a desktop, two on a
+           tablet, one above the other on a phone. The column count is set
+           by media queries only (style.css, sections 14 and 16). -->
+      <div class="card-columns">
+        <article class="card" data-event="chess-ladder">
+          <img src="images/game-chess.jpg" alt="A wooden chess board in the middle of a game, seen from the side">
+          <div class="card-body">
+            <h3>Monday chess ladder</h3>
+            <p>Play one rated game against the person just above you on the ladder. Win, and you swap
+              places for the week.</p>
+            <span class="card-meta">Monday, 20:00</span>
+            <div class="card-actions">
+              <a class="btn btn-small" href="#" data-action="join">Join</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-event="quiz-night">
+          <img src="images/game-quiz-night.jpg" alt="A quiz answer sheet and a pencil next to a mug of tea">
+          <div class="card-body">
+            <h3>Wednesday quiz night</h3>
+            <p>Six rounds and forty questions for teams of up to four. The winning team gets a round of
+              coffee from the house.</p>
+            <span class="card-meta">Wednesday, 20:00</span>
+            <div class="card-actions">
+              <a class="btn btn-small" href="#" data-action="join">Join</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-event="werewolf">
+          <img src="images/game-werewolf.jpg" alt="Illustrated village role cards spread out beside a candle">
+          <div class="card-body">
+            <h3>Friday werewolf</h3>
+            <p>The longest game of the week, with a full village of roles and the screen as narrator.
+              Bring at least four friends.</p>
+            <span class="card-meta">Friday, 20:00</span>
+            <div class="card-actions">
+              <a class="btn btn-small" href="#" data-action="join">Join</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer: keep identical on all pages -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-name">Batyrkhan Kanapiya</p>
+      <p>Online Anti-Cafe, front-end course project, 2026</p>
+      <p><a href="bootstrap/index.html">Bootstrap version of this site</a> (Assignment 3)</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

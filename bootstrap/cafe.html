@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Spend the cafe points that come with your pass on virtual treats: coffee, tea, pizza, cookies, lemonade and cake, keep them or send them to a friend.">
+  <title>Cafe | Online Anti-Cafe</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+</head>
+
+<body>
+
+  <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
+
+  <!-- header: Bootstrap navbar, keep identical on all pages. Below the lg
+       breakpoint the links collapse behind the navbar-toggler button. -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-3 border-primary" data-bs-theme="dark" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Online Anti-Cafe</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-nav">
+          <ul class="navbar-nav ms-auto gap-1 py-2 py-lg-0">
+            <li class="nav-item"><a class="nav-link rounded-3 px-3" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link rounded-3 px-3" href="games.html">Games</a></li>
+            <li class="nav-item"><a class="nav-link active text-bg-primary rounded-3 px-3" aria-current="page" href="cafe.html">Cafe</a></li>
+            <li class="nav-item"><a class="nav-link rounded-3 px-3" href="prices.html">Prices</a></li>
+            <li class="nav-item"><a class="nav-link rounded-3 px-3" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link rounded-3 px-3" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <section class="pt-5 pb-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-8">
+            <h1>The virtual cafe</h1>
+            <p class="lead text-body-secondary">Where cafe points turn into something warm on the screen.</p>
+            <p>Every pass you buy adds cafe points to your account, and this is the only place they are spent.
+              A treat you order is virtual: it appears next to your avatar with the time you ordered it, and
+              it stays there until you replace it. Nothing ever leaves the screen, and no treat costs real
+              money on top of your pass.</p>
+            <p>Treats can also be given away. Order one, choose a friend instead of yourself, and it arrives
+              beside their avatar with your name on it. It is the usual way people here say thank you after a
+              long game of werewolf.</p>
+
+            <div class="d-inline-flex flex-wrap align-items-center gap-2 bg-white border border-2 border-primary rounded-3 shadow-sm px-3 py-2 mt-2">
+              <span class="text-uppercase small text-body-secondary">Your balance</span>
+              <span class="fs-2 fw-bold text-primary">120</span>
+              <span class="text-uppercase small text-body-secondary">points</span>
+            </div>
+            <p class="small text-body-secondary mt-2">Sample balance shown for the layout. A live balance
+              arrives with the JavaScript stage of the project.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-5">
+      <div class="container">
+        <h2>Menu</h2>
+        <p class="lead text-body-secondary">Six treats, priced in points and nothing else.</p>
+
+        <!-- one card per row on a phone, two from sm, three from lg -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mt-1 mt-lg-3">
+          <div class="col">
+            <article class="card h-100 shadow-sm" data-treat="coffee" data-cost="20">
+              <div class="ratio ratio-4x3">
+                <img class="card-img-top object-fit-cover" src="../images/treat-coffee.jpg" alt="A cup of coffee with a pattern in the foam on a saucer">
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">Coffee</h3>
+                <p class="card-text text-body-secondary">The default order. Sits beside your avatar with a
+                  small rising steam animation planned for later.</p>
+                <p class="card-text"><span class="fs-5 fw-bold text-primary" data-cost="20">20</span> points</p>
+              </div>
+              <div class="card-footer bg-transparent border-top-0 pt-0 pb-3">
+                <div class="btn-group w-100" role="group" aria-label="Coffee">
+                  <button class="btn btn-primary btn-sm" type="button" data-action="order">Order</button>
+                  <button class="btn btn-outline-primary btn-sm" type="button" data-action="gift">Send to a friend</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="card h-100 shadow-sm" data-treat="tea" data-cost="15">
+              <div class="ratio ratio-4x3">
+                <img class="card-img-top object-fit-cover" src="../images/treat-tea.jpg" alt="A glass cup of black tea with a slice of lemon beside it">
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">Tea</h3>
+                <p class="card-text text-body-secondary">Cheapest thing on the menu, and the one most often
+                  sent to somebody else mid-game.</p>
+                <p class="card-text"><span class="fs-5 fw-bold text-primary" data-cost="15">15</span> points</p>
+              </div>
+              <div class="card-footer bg-transparent border-top-0 pt-0 pb-3">
+                <div class="btn-group w-100" role="group" aria-label="Tea">
+                  <button class="btn btn-primary btn-sm" type="button" data-action="order">Order</button>
+                  <button class="btn btn-outline-primary btn-sm" type="button" data-action="gift">Send to a friend</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="card h-100 shadow-sm" data-treat="pizza" data-cost="50">
+              <div class="ratio ratio-4x3">
+                <img class="card-img-top object-fit-cover" src="../images/treat-pizza.jpg" alt="A single slice of pizza with melted cheese on a wooden board">
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">Pizza slice</h3>
+                <p class="card-text text-body-secondary">The celebration order. Usually appears after somebody
+                  finally wins a quiz night.</p>
+                <p class="card-text"><span class="fs-5 fw-bold text-primary" data-cost="50">50</span> points</p>
+              </div>
+              <div class="card-footer bg-transparent border-top-0 pt-0 pb-3">
+                <div class="btn-group w-100" role="group" aria-label="Pizza slice">
+                  <button class="btn btn-primary btn-sm" type="button" data-action="order">Order</button>
+                  <button class="btn btn-outline-primary btn-sm" type="button" data-action="gift">Send to a friend</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="card h-100 shadow-sm" data-treat="cookies" data-cost="15">
+              <div class="ratio ratio-4x3">
+                <img class="card-img-top object-fit-cover" src="../images/treat-cookies.jpg" alt="Three chocolate chip cookies stacked on a small plate">
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">Cookies</h3>
+                <p class="card-text text-body-secondary">Comes as a plate of three, which the interface will
+                  let you share between two friends.</p>
+                <p class="card-text"><span class="fs-5 fw-bold text-primary" data-cost="15">15</span> points</p>
+              </div>
+              <div class="card-footer bg-transparent border-top-0 pt-0 pb-3">
+                <div class="btn-group w-100" role="group" aria-label="Cookies">
+                  <button class="btn btn-primary btn-sm" type="button" data-action="order">Order</button>
+                  <button class="btn btn-outline-primary btn-sm" type="button" data-action="gift">Send to a friend</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="card h-100 shadow-sm" data-treat="lemonade" data-cost="25">
+              <div class="ratio ratio-4x3">
+                <img class="card-img-top object-fit-cover" src="../images/treat-lemonade.jpg" alt="A tall glass of lemonade with ice and a sprig of mint">
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">Lemonade</h3>
+                <p class="card-text text-body-secondary">For the long summer sessions, when nobody wants
+                  another cup of something hot.</p>
+                <p class="card-text"><span class="fs-5 fw-bold text-primary" data-cost="25">25</span> points</p>
+              </div>
+              <div class="card-footer bg-transparent border-top-0 pt-0 pb-3">
+                <div class="btn-group w-100" role="group" aria-label="Lemonade">
+                  <button class="btn btn-primary btn-sm" type="button" data-action="order">Order</button>
+                  <button class="btn btn-outline-primary btn-sm" type="button" data-action="gift">Send to a friend</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="card h-100 shadow-sm" data-treat="cake" data-cost="40">
+              <div class="ratio ratio-4x3">
+                <img class="card-img-top object-fit-cover" src="../images/treat-cake.jpg" alt="A slice of layered sponge cake on a white plate with a fork">
+              </div>
+              <div class="card-body">
+                <h3 class="card-title h5">Cake</h3>
+                <p class="card-text text-body-secondary">Saved for birthdays. Sending one is the closest this
+                  site gets to a greeting card.</p>
+                <p class="card-text"><span class="fs-5 fw-bold text-primary" data-cost="40">40</span> points</p>
+              </div>
+              <div class="card-footer bg-transparent border-top-0 pt-0 pb-3">
+                <div class="btn-group w-100" role="group" aria-label="Cake">
+                  <button class="btn btn-primary btn-sm" type="button" data-action="order">Order</button>
+                  <button class="btn btn-outline-primary btn-sm" type="button" data-action="gift">Send to a friend</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-body-tertiary border-top py-5">
+      <div class="container">
+        <h2>How points work</h2>
+        <ul class="list-group shadow-sm mt-3">
+          <li class="list-group-item"><strong>Points arrive with the pass.</strong> Each plan on the
+            <a href="prices.html">prices page</a> lists exactly how many points it carries, and they land on
+            the account the moment the pass starts.</li>
+          <li class="list-group-item"><strong>Treats are virtual.</strong> An order changes what sits beside
+            your avatar and nothing else. The whole cafe lives inside your account.</li>
+          <li class="list-group-item"><strong>Points can be gifted.</strong> Any treat can be sent to another
+            account instead of your own, and the sender's name travels with it.</li>
+          <li class="list-group-item"><strong>Unused points stay.</strong> They do not expire when the pass
+            does, so a small balance left over from Tuesday is still there on Friday.</li>
+        </ul>
+        <div class="card border-0 border-start border-4 border-primary shadow-sm mt-4">
+          <div class="card-body p-3 p-md-4">
+            <p class="card-text text-body-secondary">The Order buttons are placeholders in this stage. Each
+              treat card already carries the name and the cost of its treat in the markup, so the working
+              cafe can read them directly later.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer: keep identical on all pages -->
+  <footer class="bg-body-tertiary border-top text-center py-4">
+    <div class="container">
+      <p class="fw-bold mb-1">Batyrkhan Kanapiya</p>
+      <p class="text-body-secondary mb-1">Online Anti-Cafe, front-end course project, 2026</p>
+      <p class="text-body-secondary mb-0">Bootstrap copy made for Assignment 3.
+        <a href="../index.html">Back to the custom CSS site</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About the Online Anti-Cafe project and its author, Batyrkhan Kanapiya, software engineering student at Astana IT University.">
+  <title>About | Online Anti-Cafe</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+</head>
+
+<body>
+
+  <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
+
+  <!-- header: Bootstrap navbar, keep identical on all pages. Below the lg
+       breakpoint the links collapse behind the navbar-toggler button. -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-3 border-primary" data-bs-theme="dark" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Online Anti-Cafe</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-nav">
+          <ul class="navbar-nav ms-auto gap-1 py-2 py-lg-0">
+            <li class="nav-item"><a class="nav-link rounded-3 px-3" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link rounded-3 px-3" href="games.html">Games</a></li>
+            <li class="nav-item"><a class="nav-link rounded-3 px-3" href="cafe.html">Cafe</a></li>
+            <li class="nav-item"><a class="nav-link rounded-3 px-3" href="prices.html">Prices</a></li>
+            <li class="nav-item"><a class="nav-link active text-bg-primary rounded-3 px-3" aria-current="page" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link rounded-3 px-3" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <section class="pt-5 pb-3">
+      <div class="container">
+        <h1>About</h1>
+        <p class="lead text-body-secondary"><i>Who built the Online Anti-Cafe, and why it works the way it
+          does.</i></p>
+      </div>
+    </section>
+
+    <section class="pb-5">
+      <div class="container">
+        <h2>About the team members</h2>
+
+        <!-- profile: portrait and text side by side from md up -->
+        <div class="row align-items-center g-4 mt-1">
+          <div class="col-8 col-sm-6 col-md-4 col-lg-3 mx-auto mx-md-0">
+            <div class="ratio ratio-1x1">
+              <img class="object-fit-cover rounded-circle border border-4 border-primary shadow-sm" src="../images/profile.jpg" alt="Portrait of Batyrkhan Kanapiya, the author of the project">
+            </div>
+          </div>
+          <div class="col-12 col-md-8 col-lg-9">
+            <h3>Batyrkhan Kanapiya</h3>
+            <p>Second-year student at Astana IT University, School of Computer Engineering, currently taking
+              the front-end development course. I designed and wrote every page of this project, including
+              the shared stylesheet, the page structure and the content.</p>
+            <p>I wanted a first project that was more than a brochure, so I picked an idea with real rules
+              behind it: time, points and treats that have to add up. The layout work came first; the logic
+              that makes those rules run arrives in the next stage.</p>
+            <ul class="mb-0">
+              <li>Interests: board games, chess, quiz nights and interface design</li>
+              <li>Skills in use here: the Bootstrap 5 grid, spacing utilities and components</li>
+              <li>Learning next: JavaScript, so the games and the points balance actually work</li>
+              <li>Pages built: all six, from the home page to the contact form</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-body-tertiary border-top border-bottom py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-10">
+            <h2>Our story</h2>
+            <p>The idea came from a simple annoyance. Students meet up to play something, and within ten
+              minutes somebody is ordering a drink they do not want just to keep the table. An anti-cafe
+              reverses that arrangement in a real building: you pay for time, and the tea is already
+              included. This project asks whether the same arrangement works on a screen, with no building at
+              all.</p>
+            <p class="mb-0">So the site sells one thing, time, and gives everything else away with it. Every
+              game is open to every pass, and the cafe runs on points rather than a second payment. The
+              treats are virtual on purpose. They cost nothing to make, they can be given to a friend in one
+              click, and they turn a balance of points into something that feels like sitting in a cafe with
+              people you like.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-10">
+            <h2>What comes next</h2>
+            <p>This stage is HTML and CSS only, so the Play and Order buttons are placeholders and the points
+              balance on the cafe page is a fixed number. The next stage adds JavaScript: single-player and
+              same-device minigames, a points balance that really goes up when a round finishes and down when
+              a treat is ordered, and the ability to send a treat to another account.</p>
+          </div>
+        </div>
+        <div class="card border-0 border-start border-4 border-primary shadow-sm mt-3">
+          <div class="card-body p-3 p-md-4">
+            <p class="card-text text-body-secondary">This copy of the site is built with Bootstrap 5.3 for
+              Assignment 3. The <a href="../index.html">main site</a> stays plain HTML5 and one hand-written
+              CSS file, and the next stages continue from there.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-body-tertiary border-top py-5">
+      <div class="container">
+        <h2>Gallery</h2>
+        <p class="lead text-body-secondary">Nine pictures of the games and the treats the cafe is built
+          around.</p>
+
+        <!-- carousel: centred in the grid, full width on a phone and ten of
+             twelve columns from lg up. It does not play by itself; the
+             visitor moves it with the arrows, the indicators, the keyboard
+             or a swipe. Captions are hidden below md, where they would
+             cover most of the picture. -->
+        <div class="row justify-content-center mt-3 mt-lg-4">
+          <div class="col-12 col-lg-10">
+            <div id="gallery-carousel" class="carousel slide rounded-3 overflow-hidden shadow-sm">
+              <div class="carousel-indicators">
+                <button class="active" type="button" data-bs-target="#gallery-carousel" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1: Chess"></button>
+                <button type="button" data-bs-target="#gallery-carousel" data-bs-slide-to="1" aria-label="Slide 2: Mafia"></button>
+                <button type="button" data-bs-target="#gallery-carousel" data-bs-slide-to="2" aria-label="Slide 3: Codenames"></button>
+                <button type="button" data-bs-target="#gallery-carousel" data-bs-slide-to="3" aria-label="Slide 4: Uno"></button>
+                <button type="button" data-bs-target="#gallery-carousel" data-bs-slide-to="4" aria-label="Slide 5: Quiz night"></button>
+                <button type="button" data-bs-target="#gallery-carousel" data-bs-slide-to="5" aria-label="Slide 6: Werewolf"></button>
+                <button type="button" data-bs-target="#gallery-carousel" data-bs-slide-to="6" aria-label="Slide 7: Coffee"></button>
+                <button type="button" data-bs-target="#gallery-carousel" data-bs-slide-to="7" aria-label="Slide 8: Pizza slice"></button>
+                <button type="button" data-bs-target="#gallery-carousel" data-bs-slide-to="8" aria-label="Slide 9: Cake"></button>
+              </div>
+
+              <div class="carousel-inner">
+                <figure class="carousel-item active mb-0">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="../images/game-chess.jpg" alt="A wooden chess board in the middle of a game, seen from the side">
+                  </div>
+                  <figcaption class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 px-3 py-2 mb-4">Chess, the quiet table</figcaption>
+                </figure>
+
+                <figure class="carousel-item mb-0">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="../images/game-mafia.jpg" alt="A circle of playing cards with role illustrations laid out on a dark table">
+                  </div>
+                  <figcaption class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 px-3 py-2 mb-4">Mafia, roles dealt in turn</figcaption>
+                </figure>
+
+                <figure class="carousel-item mb-0">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="../images/game-codenames.jpg" alt="A grid of word cards on a table with two coloured team markers beside it">
+                  </div>
+                  <figcaption class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 px-3 py-2 mb-4">Codenames, two teams racing</figcaption>
+                </figure>
+
+                <figure class="carousel-item mb-0">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="../images/game-uno.jpg" alt="A fan of brightly coloured number cards held above a table">
+                  </div>
+                  <figcaption class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 px-3 py-2 mb-4">Uno, ten minutes flat</figcaption>
+                </figure>
+
+                <figure class="carousel-item mb-0">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="../images/game-quiz-night.jpg" alt="A quiz answer sheet and a pencil next to a mug of tea">
+                  </div>
+                  <figcaption class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 px-3 py-2 mb-4">Quiz night, forty questions</figcaption>
+                </figure>
+
+                <figure class="carousel-item mb-0">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="../images/game-werewolf.jpg" alt="Illustrated village role cards spread out beside a candle">
+                  </div>
+                  <figcaption class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 px-3 py-2 mb-4">Werewolf, by candlelight</figcaption>
+                </figure>
+
+                <figure class="carousel-item mb-0">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="../images/treat-coffee.jpg" alt="A cup of coffee with a pattern in the foam on a saucer">
+                  </div>
+                  <figcaption class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 px-3 py-2 mb-4">Coffee, 20 points</figcaption>
+                </figure>
+
+                <figure class="carousel-item mb-0">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="../images/treat-pizza.jpg" alt="A single slice of pizza with melted cheese on a wooden board">
+                  </div>
+                  <figcaption class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 px-3 py-2 mb-4">Pizza slice, 50 points</figcaption>
+                </figure>
+
+                <figure class="carousel-item mb-0">
+                  <div class="ratio ratio-16x9">
+                    <img class="d-block w-100 object-fit-cover" src="../images/treat-cake.jpg" alt="A slice of layered sponge cake on a white plate with a fork">
+                  </div>
+                  <figcaption class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 px-3 py-2 mb-4">Cake, saved for birthdays</figcaption>
+                </figure>
+              </div>
+
+              <button class="carousel-control-prev" type="button" data-bs-target="#gallery-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous picture</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#gallery-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next picture</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer: keep identical on all pages -->
+  <footer class="bg-body-tertiary border-top text-center py-4">
+    <div class="container">
+      <p class="fw-bold mb-1">Batyrkhan Kanapiya</p>
+      <p class="text-body-secondary mb-1">Online Anti-Cafe, front-end course project, 2026</p>
+      <p class="text-body-secondary mb-0">Bootstrap copy made for Assignment 3.
+        <a href="../index.html">Back to the custom CSS site</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -13,8 +13,15 @@
      11. Footer
      12. Page layout with grid areas
      13. Image gallery
-     14. Utilities (reserved for the JavaScript stage)
-     15. Media query
+     14. Card columns set by media queries
+     15. Utilities (reserved for the JavaScript stage)
+     16. Media queries
+
+   BREAKPOINTS (the same values Bootstrap uses, so both versions of the
+   site switch layout at the same widths)
+     mobile   below 768px    base rules, written first
+     tablet   768px and up   @media (min-width: 768px)
+     desktop  992px and up   @media (min-width: 992px)
    ========================================================================== */
 
 
@@ -47,6 +54,19 @@
 
   --border-width: 1px;
   --speed:        0.2s;
+
+  /* Type scale, mobile first. These are the phone sizes; the media
+     queries in section 16 redefine the same tokens for tablet and
+     desktop, so no element rule ever needs a second font-size. */
+  --fs-h1:   1.8rem;
+  --fs-h2:   1.4rem;
+  --fs-h3:   1.1rem;
+  --fs-body: 0.9375rem;
+  --fs-lead: 1rem;
+
+  /* Number of columns in .card-columns (section 14), also redefined
+     per breakpoint in section 16 */
+  --card-columns: 1;
 }
 
 
@@ -67,7 +87,7 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: var(--fs-body);
   line-height: 1.6;
 }
 
@@ -80,17 +100,17 @@ h3 {
 }
 
 h1 {
-  font-size: 2.4rem;
+  font-size: var(--fs-h1);
   margin-bottom: var(--space);
 }
 
 h2 {
-  font-size: 1.7rem;
+  font-size: var(--fs-h2);
   margin-bottom: var(--space);
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: var(--fs-h3);
   margin-bottom: 0.5rem;
 }
 
@@ -159,7 +179,7 @@ strong {
 
 .lead {
   color: var(--muted);
-  font-size: 1.1rem;
+  font-size: var(--fs-lead);
   max-width: 60%;
 }
 
@@ -894,7 +914,27 @@ input[type="radio"] {
 
 
 /* ==========================================================================
-   14. UTILITIES (reserved for the JavaScript stage)
+   14. CARD COLUMNS SET BY MEDIA QUERIES
+   --------------------------------------------------------------------------
+   Used on events.html. Unlike .card-grid in section 7, which lets flex-wrap
+   decide how many cards fit, this row states the count exactly for each
+   screen size: one column on a phone, two on a tablet, three on a desktop.
+   The count comes from the --card-columns token, and the media queries in
+   section 16 change only that token. The cards themselves are the same
+   .card from section 7.
+   ========================================================================== */
+.card-columns {
+  /* grid, not flex: every column must be exactly the same width, and a
+     lone card on the last row must keep that width instead of stretching */
+  display: grid;
+  grid-template-columns: repeat(var(--card-columns), 1fr);
+  gap: calc(var(--space) * 1.5);
+  margin-top: calc(var(--space) * 1.5);
+}
+
+
+/* ==========================================================================
+   15. UTILITIES (reserved for the JavaScript stage)
    --------------------------------------------------------------------------
    Not used yet. Stage 2 will toggle these classes from script to hide
    elements and to mark a card while its action is being processed.
@@ -911,17 +951,43 @@ input[type="radio"] {
 
 
 /* ==========================================================================
-   15. MEDIA QUERY
+   16. MEDIA QUERIES
+   --------------------------------------------------------------------------
+   The two min-width queries are mobile first: the base rules above are the
+   phone version, and each query only redefines tokens from section 1 for a
+   wider screen. The max-width query at the end holds the phone-only layout
+   changes for the header, the games page grid and the forms.
    ========================================================================== */
-@media (max-width: 720px) {
-  h1 {
-    font-size: 1.9rem;
-  }
 
-  h2 {
-    font-size: 1.4rem;
-  }
+/* Tablet, 768px and up: medium type, two cards per row */
+@media (min-width: 768px) {
+  :root {
+    --fs-h1:   2.1rem;
+    --fs-h2:   1.55rem;
+    --fs-h3:   1.15rem;
+    --fs-body: 1rem;
+    --fs-lead: 1.05rem;
 
+    --card-columns: 2;
+  }
+}
+
+/* Desktop, 992px and up: large type, three cards per row */
+@media (min-width: 992px) {
+  :root {
+    --fs-h1:   2.4rem;
+    --fs-h2:   1.7rem;
+    --fs-h3:   1.2rem;
+    --fs-body: 1.0625rem;
+    --fs-lead: 1.1rem;
+
+    --card-columns: 3;
+  }
+}
+
+/* Phone only, below 768px. 767.98px rather than 767px so that no fractional
+   width (on a zoomed screen) falls between this query and the tablet one. */
+@media (max-width: 767.98px) {
   /* One column on a phone. Only the list of area names changes, and the
      sidebar moves below the main content without touching the HTML. */
   .page-layout {
