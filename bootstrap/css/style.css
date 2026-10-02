@@ -1,43 +1,18 @@
-/* ==========================================================================
-   BOOTSTRAP THEME FOR THE ASSIGNMENT 3 COPY
-   --------------------------------------------------------------------------
-   Layout, spacing, the navbar, buttons, cards, the carousel and the form all
-   come from Bootstrap classes in the HTML. This file only puts the cafe
-   palette into Bootstrap's own CSS variables, so it holds no margins,
-   paddings, sizes or layout rules.
+/* bootstrap theme */
 
-   CONTENTS
-     1. Palette
-     2. Bootstrap global variables
-     3. Bootstrap component variables
-   ========================================================================== */
-
-
-/* ==========================================================================
-   1. PALETTE
-   --------------------------------------------------------------------------
-   Every colour is written once, here, as an "r, g, b" triplet. Bootstrap
-   needs the triplet form for its opacity utilities (bg-opacity-75 and so
-   on); rgb(var(...)) turns the same triplet into a normal colour.
-   ========================================================================== */
+/* palette */
 :root {
-  --cafe-cream-rgb:       255, 248, 240;  /* page background                */
-  --cafe-cream-alt-rgb:   253, 241, 229;  /* alternate sections, footer     */
-  --cafe-brown-rgb:       59, 47, 47;     /* text and the navbar            */
-  --cafe-muted-rgb:       122, 106, 97;   /* secondary text, 4.9:1 on cream */
-  --cafe-accent-rgb:      166, 82, 56;    /* primary, 5.4:1 against white   */
-  --cafe-accent-dark-rgb: 138, 66, 45;    /* hover and pressed states       */
-  --cafe-border-rgb:      232, 217, 200;  /* borders and dividers           */
+  --cafe-cream-rgb:       255, 248, 240;  /* page background */
+  --cafe-cream-alt-rgb:   253, 241, 229;  /* sections, footer */
+  --cafe-brown-rgb:       59, 47, 47;     /* text, navbar */
+  --cafe-muted-rgb:       122, 106, 97;   /* secondary text */
+  --cafe-accent-rgb:      166, 82, 56;    /* primary */
+  --cafe-accent-dark-rgb: 138, 66, 45;    /* hover */
+  --cafe-border-rgb:      232, 217, 200;  /* borders */
 }
 
 
-/* ==========================================================================
-   2. BOOTSTRAP GLOBAL VARIABLES
-   --------------------------------------------------------------------------
-   Utilities such as bg-primary, text-bg-primary, bg-dark, border-primary,
-   text-body-secondary and bg-body-tertiary read these variables, so the
-   classes in the HTML pick up the cafe colours without any extra rules.
-   ========================================================================== */
+/* bootstrap variables */
 :root {
   --bs-primary:              rgb(var(--cafe-accent-rgb));
   --bs-primary-rgb:          var(--cafe-accent-rgb);
@@ -62,14 +37,7 @@
 }
 
 
-/* ==========================================================================
-   3. BOOTSTRAP COMPONENT VARIABLES
-   --------------------------------------------------------------------------
-   Bootstrap 5.3 builds .btn-primary, .btn-outline-primary and .card from
-   local --bs-btn-* and --bs-card-* variables, compiled with its default
-   blue. Setting those variables recolours the components and leaves the
-   markup as plain Bootstrap classes.
-   ========================================================================== */
+/* buttons */
 .btn-primary {
   --bs-btn-bg:                    var(--bs-primary);
   --bs-btn-border-color:          var(--bs-primary);
@@ -94,13 +62,12 @@
   --bs-btn-focus-shadow-rgb:      var(--cafe-accent-rgb);
 }
 
-/* cards stay white on the cream page, as on the custom CSS site */
+/* cards */
 .card {
   --bs-card-bg: var(--bs-white);
 }
 
-/* Form controls have their focus ring and checked colour compiled in, not
-   read from a variable, so these two rules point them at the theme. */
+/* form */
 .form-control:focus,
 .form-select:focus,
 .form-check-input:focus {
