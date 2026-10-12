@@ -8,6 +8,9 @@
   <title>Events | Online Anti-Cafe</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
+  <script src="js/popup.js" defer></script>
+  <script src="js/background.js" defer></script>
+  <script src="js/clock.js" defer></script>
 </head>
 
 <body>
@@ -37,6 +40,7 @@
       <p class="lead">Three evenings a week when everybody plays the same game at the same time.</p>
       <p>Events are open to every pass. Join from the card on the evening itself, and the game starts
         with whoever is in the room at eight o'clock.</p>
+      <button class="btn" type="button" id="subscribe-open">Subscribe to reminders</button>
     </div>
   </section>
 
@@ -96,8 +100,31 @@
       <p class="footer-name">Batyrkhan Kanapiya</p>
       <p>Online Anti-Cafe, front-end course project, 2026</p>
       <p><a href="bootstrap/index.html">Bootstrap version of this site</a> (Assignment 3)</p>
+      <div class="footer-tools">
+        <time class="footer-clock" id="current-datetime"></time>
+        <button class="btn btn-small btn-outline" type="button" id="bg-toggle">Background: <span class="bg-name">Cream</span></button>
+      </div>
     </div>
   </footer>
+
+  <div class="popup" id="subscribe-popup" aria-hidden="true">
+    <div class="popup-dialog" role="dialog" aria-modal="true" aria-labelledby="subscribe-title">
+      <button class="popup-close" type="button" aria-label="Close">&times;</button>
+      <h2 id="subscribe-title">Never miss a game night</h2>
+      <p>Leave your email and we will send a short reminder an hour before every weekly event.</p>
+
+      <form id="subscribe-form" action="#" method="post" novalidate>
+        <div class="form-group">
+          <label for="subscribe-email">Email</label>
+          <input type="email" id="subscribe-email" name="email" autocomplete="email" placeholder="you@example.com" aria-describedby="subscribe-email-error">
+          <span class="form-error" id="subscribe-email-error" aria-live="polite"></span>
+        </div>
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+
+      <p class="form-success" id="subscribe-success" role="status" hidden></p>
+    </div>
+  </div>
 
 </body>
 

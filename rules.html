@@ -8,6 +8,9 @@
   <title>Rules | Online Anti-Cafe</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
+  <script src="js/accordion.js" defer></script>
+  <script src="js/background.js" defer></script>
+  <script src="js/clock.js" defer></script>
 </head>
 
 <body>
@@ -86,12 +89,85 @@
     </div>
   </section>
 
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Frequently asked questions</h2>
+      <p class="lead">Click a question to see the answer, and click it again to hide it.</p>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <h3 class="accordion-heading">
+            <button class="accordion-trigger" type="button" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">
+              Do I need a pass to look around the site?
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq-a1" role="region" aria-labelledby="faq-q1">
+            <p>No. Reading the rules, browsing the cafe menu and checking prices are free. A pass is only
+              needed when you open a game.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-heading">
+            <button class="accordion-trigger" type="button" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
+              What happens to my points when a pass ends?
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq-a2" role="region" aria-labelledby="faq-q2">
+            <p>Nothing. Cafe points stay on the account after the pass is over and can be spent in the
+              virtual cafe at any time.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-heading">
+            <button class="accordion-trigger" type="button" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
+              Can I pause my time in the middle of a game?
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq-a3" role="region" aria-labelledby="faq-q3">
+            <p>Yes. Closing the game stops the clock, and the game remembers where you stopped. Open it
+              again and the time continues from the same minute.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-heading">
+            <button class="accordion-trigger" type="button" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">
+              How many people can play on one pass?
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq-a4" role="region" aria-labelledby="faq-q4">
+            <p>Group games on one shared screen need only one pass. The Evening Pass and longer plans allow
+              up to twelve players around the same device.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-heading">
+            <button class="accordion-trigger" type="button" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">
+              Can a gift be returned?
+            </button>
+          </h3>
+          <div class="accordion-panel" id="faq-a5" role="region" aria-labelledby="faq-q5">
+            <p>No. A treat sent to a friend arrives at once and cannot be taken back, so check the name
+              before you press the button.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- footer: keep identical on all pages -->
   <footer class="site-footer">
     <div class="container">
       <p class="footer-name">Batyrkhan Kanapiya</p>
       <p>Online Anti-Cafe, front-end course project, 2026</p>
       <p><a href="bootstrap/index.html">Bootstrap version of this site</a> (Assignment 3)</p>
+      <div class="footer-tools">
+        <time class="footer-clock" id="current-datetime"></time>
+        <button class="btn btn-small btn-outline" type="button" id="bg-toggle">Background: <span class="bg-name">Cream</span></button>
+      </div>
     </div>
   </footer>
 

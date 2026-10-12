@@ -14,7 +14,7 @@
      12. Page layout with grid areas
      13. Image gallery
      14. Card columns set by media queries
-     15. Utilities (reserved for the JavaScript stage)
+     15. JavaScript components
      16. Media queries
 
    BREAKPOINTS (the same values Bootstrap uses, so both versions of the
@@ -48,6 +48,11 @@
   --shadow-hover: 0 8px 20px rgba(59, 47, 47, 0.13);
   --focus-glow:   0 0 0 3px rgba(201, 111, 74, 0.22);
   --overlay:      rgba(59, 47, 47, 0.82);  /* gallery caption bar   */
+  --backdrop:     rgba(59, 47, 47, 0.6);   /* popup background      */
+  --error:        #B3261E;
+  --error-bg:     #FDF0EF;
+  --success:      #2E7D4F;
+  --success-bg:   #EAF5EE;
 
   --font-heading: "Segoe UI", "Trebuchet MS", Verdana, sans-serif;
   --font-body:    "Helvetica Neue", Arial, "Segoe UI", sans-serif;
@@ -89,6 +94,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--fs-body);
   line-height: 1.6;
+  transition: background-color 0.5s ease;
 }
 
 h1,
@@ -568,7 +574,8 @@ strong {
 /* ==========================================================================
    9. FORM
    ========================================================================== */
-#contact-form {
+#contact-form,
+#signup-form {
   max-width: 60%;
   margin-top: calc(var(--space) * 1.5);
   padding: calc(var(--space) * 2);
@@ -623,7 +630,8 @@ input[type="color"] {
   cursor: pointer;
 }
 
-input[type="radio"] {
+input[type="radio"],
+input[type="checkbox"] {
   width: 18px;
   height: 18px;
   margin-right: 0.4rem;
@@ -645,7 +653,8 @@ input[type="radio"] {
   gap: calc(var(--space) * 1.25);
 }
 
-.radio-option {
+.radio-option,
+.check-option {
   display: flex;
   align-items: center;
   margin-bottom: 0;
@@ -934,20 +943,219 @@ input[type="radio"] {
 
 
 /* ==========================================================================
-   15. UTILITIES (reserved for the JavaScript stage)
+   15. JAVASCRIPT COMPONENTS
    --------------------------------------------------------------------------
-   Not used yet. Stage 2 will toggle these classes from script to hide
-   elements and to mark a card while its action is being processed.
-
-   .hidden {
-     display: none;
-   }
-
-   .is-loading {
-     opacity: 0.6;
-     pointer-events: none;
-   }
+   Form validation states, FAQ accordion, subscription popup, and the
+   footer clock and background switcher. The scripts live in js/.
    ========================================================================== */
+
+/* Form validation (js/validation.js, js/popup.js) */
+.form-error {
+  display: block;
+  min-height: 1.2em;
+  margin-top: 0.3rem;
+  color: var(--error);
+  font-size: 0.85rem;
+}
+
+input.is-invalid,
+select.is-invalid {
+  border-color: var(--error);
+  background-color: var(--error-bg);
+}
+
+input.is-valid,
+select.is-valid {
+  border-color: var(--success);
+}
+
+input[type="checkbox"].is-invalid {
+  outline: 2px solid var(--error);
+  outline-offset: 2px;
+}
+
+.form-success {
+  margin-top: var(--space);
+  margin-bottom: 0;
+  padding: 0.8rem var(--space);
+  border-left: 4px solid var(--success);
+  border-radius: var(--radius);
+  background-color: var(--success-bg);
+  color: var(--text);
+}
+
+/* Accordion (js/accordion.js) */
+.accordion {
+  max-width: 800px;
+  margin-top: calc(var(--space) * 1.5);
+}
+
+.accordion-item {
+  margin-bottom: 0.75rem;
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.accordion-heading {
+  margin: 0;
+  font-size: var(--fs-body);
+}
+
+.accordion-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space);
+  width: 100%;
+  padding: var(--space) calc(var(--space) * 1.25);
+  border: none;
+  background: none;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--speed) ease, color var(--speed) ease;
+}
+
+.accordion-trigger::after {
+  content: "+";
+  flex-shrink: 0;
+  color: var(--accent);
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.accordion-trigger:hover,
+.accordion-item.is-open .accordion-trigger {
+  background-color: var(--surface-alt);
+  color: var(--accent-dark);
+}
+
+.accordion-trigger:focus-visible {
+  outline: none;
+  box-shadow: inset var(--focus-glow);
+}
+
+.accordion-item.is-open .accordion-trigger::after {
+  transform: rotate(45deg);
+}
+
+.accordion-panel {
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.accordion-panel p {
+  margin: 0;
+  padding: 0.25rem calc(var(--space) * 1.25) calc(var(--space) * 1.25);
+  color: var(--muted);
+}
+
+/* Popup (js/popup.js) */
+.popup {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space);
+  background-color: var(--backdrop);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.popup.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  padding: calc(var(--space) * 2);
+  border-top: 4px solid var(--accent);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.25s ease;
+}
+
+.popup.is-open .popup-dialog {
+  transform: translateY(0) scale(1);
+}
+
+.popup-dialog h2 {
+  padding-right: 2rem;
+}
+
+.popup-dialog p {
+  color: var(--muted);
+}
+
+.popup-dialog .form-group {
+  margin-bottom: 0.5rem;
+}
+
+.popup-dialog .btn {
+  margin-top: 0;
+}
+
+.popup-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--surface-alt);
+  color: var(--text);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color var(--speed) ease, color var(--speed) ease;
+}
+
+.popup-close:hover {
+  background-color: var(--accent);
+  color: var(--surface);
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* Footer clock and background switcher (js/clock.js, js/background.js) */
+.footer-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem var(--space);
+  margin-top: var(--space);
+}
+
+.footer-clock {
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-variant-numeric: tabular-nums;
+}
+
+.footer-tools .btn {
+  margin: 0;
+}
 
 
 /* ==========================================================================
@@ -1015,7 +1223,7 @@ input[type="radio"] {
   }
 
   .nav-menu {
-    justify-content: center;
+    justify-content: space-between;
   }
 
   #hero {
@@ -1025,11 +1233,13 @@ input[type="radio"] {
   .lead,
   .points-bar,
   #contact-form,
+  #signup-form,
   .contact-details {
     max-width: 100%;
   }
 
-  #contact-form {
+  #contact-form,
+  #signup-form {
     padding: calc(var(--space) * 1.25);
   }
 }

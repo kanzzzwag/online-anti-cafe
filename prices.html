@@ -8,6 +8,9 @@
   <title>Prices | Online Anti-Cafe</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="images/favicon.png">
+  <script src="js/validation.js" defer></script>
+  <script src="js/background.js" defer></script>
+  <script src="js/clock.js" defer></script>
 </head>
 
 <body>
@@ -116,9 +119,66 @@
           its points immediately and its time afterwards.</li>
       </ul>
       <div class="info-panel">
-        <p>Payment is not part of this stage of the project. The table above describes the plans; buying
-          one is added together with the accounts system in a later stage.</p>
+        <p>Payment is not part of this stage of the project. Create an account below, and a pass will be
+          attached to it once payments are added in a later stage.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="signup">
+    <div class="container">
+      <h2>Create an account</h2>
+      <p class="lead">An account keeps your passes, your cafe points and your treats in one place.</p>
+
+      <form id="signup-form" action="#" method="post" novalidate>
+        <div class="form-group">
+          <label for="signup-name">Name</label>
+          <input type="text" id="signup-name" name="fullname" autocomplete="name" placeholder="Your name" aria-describedby="signup-name-error">
+          <span class="form-error" id="signup-name-error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email" name="email" autocomplete="email" placeholder="you@example.com" aria-describedby="signup-email-error">
+          <span class="form-error" id="signup-email-error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" name="password" autocomplete="new-password" aria-describedby="signup-password-hint signup-password-error">
+          <span class="form-hint" id="signup-password-hint">At least 8 characters, with at least one letter and one number.</span>
+          <span class="form-error" id="signup-password-error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="signup-confirm">Confirm password</label>
+          <input type="password" id="signup-confirm" name="confirmPassword" autocomplete="new-password" aria-describedby="signup-confirm-error">
+          <span class="form-error" id="signup-confirm-error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="signup-plan">Pass you are interested in</label>
+          <select id="signup-plan" name="plan" aria-describedby="signup-plan-error">
+            <option value="">Choose a pass</option>
+            <option value="hour">Hour Pass</option>
+            <option value="evening">Evening Pass</option>
+            <option value="day">Day Pass</option>
+            <option value="student">Student Pass</option>
+          </select>
+          <span class="form-error" id="signup-plan-error" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="check-option" for="signup-terms">
+            <input type="checkbox" id="signup-terms" name="terms" aria-describedby="signup-terms-error">
+            <span>I have read the <a href="rules.html">house rules</a></span>
+          </label>
+          <span class="form-error" id="signup-terms-error" aria-live="polite"></span>
+        </div>
+
+        <button class="btn" type="submit">Create account</button>
+        <p class="form-success" id="signup-success" role="status" hidden></p>
+      </form>
     </div>
   </section>
 
@@ -128,6 +188,10 @@
       <p class="footer-name">Batyrkhan Kanapiya</p>
       <p>Online Anti-Cafe, front-end course project, 2026</p>
       <p><a href="bootstrap/index.html">Bootstrap version of this site</a> (Assignment 3)</p>
+      <div class="footer-tools">
+        <time class="footer-clock" id="current-datetime"></time>
+        <button class="btn btn-small btn-outline" type="button" id="bg-toggle">Background: <span class="bg-name">Cream</span></button>
+      </div>
     </div>
   </footer>
 

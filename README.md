@@ -44,11 +44,25 @@ media queries at the end of [`css/style.css`](css/style.css) only change design
 tokens (font sizes, column count). Wide tables scroll horizontally inside their
 own box, so the page itself never scrolls sideways.
 
+## Interactive features (Assignment 4)
+
+Plain JavaScript, no libraries. Each feature is a separate file in [`js/`](js/),
+linked with `defer` only on the pages that use it.
+
+| Feature | Script | Page |
+|---|---|---|
+| Sign-up form validation (required fields, email format, password length, password confirmation) | [`js/validation.js`](js/validation.js) | Prices |
+| FAQ accordion with a smooth open and close transition | [`js/accordion.js`](js/accordion.js) | Rules |
+| Subscription popup, closed by the close button, a click outside or Escape | [`js/popup.js`](js/popup.js) | Events |
+| Background colour switcher that cycles through six preset colours | [`js/background.js`](js/background.js) | Footer of every page |
+| Live date and time, for example "October 12, 2026, 3:16:07 PM" | [`js/clock.js`](js/clock.js) | Footer of every page |
+
 ## Project structure
 
 ```
 index.html, games.html, ...   custom CSS version
 css/style.css                 styles for the custom CSS version
+js/*.js                       interactive features (Assignment 4)
 bootstrap/*.html              Bootstrap version
 bootstrap/css/style.css       Bootstrap theme (cafe colours)
 images/                       photos and favicon shared by both versions
